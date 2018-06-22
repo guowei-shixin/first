@@ -1,0 +1,20 @@
+#线上
+export PGPASSWORD=Z8asuidn
+psql -h rm-2zeeq8wu95hbrl2gm.pg.rds.aliyuncs.com -U postgres -d call_crm -p 3433 -f t.sql 
+pip install gevent --user -U 
+
+less rabbit@a315980.log |awk '{s=s":"$0;if(length($0)==0){print s;s=""}}' |grep -i warn |head
+
+
+阿里云 aicyber007  aicyber123456
+
+redis 集群先删数据文件,然后启动
+./src/redis-server redis.conf 
+./src/redis-server redis_1.conf 
+./src/redis-server redis_2.conf
+
+./src/redis-trib.rb create  192.168.1.106:6379 192.168.1.106:6380 192.168.1.106:6381
+./src/redis-cli -h 192.168.1.106 -p 6379 -c
+订阅
+PSUBSCRIBE    '__keyevent@0__:expired'
+set    chaijunkun    123    PX    100
